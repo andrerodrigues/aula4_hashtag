@@ -9,3 +9,11 @@ export const AppDataSource = new DataSource({
     entities: [Artist, Song],
     synchronize: true,  // Ou false, dependendo de como você prefere controlar as migrações
 });
+
+AppDataSource.initialize()
+    .then(() => {
+        console.log("Banco de dados conectado com sucesso!");
+})
+.catch((error) => {
+    console.error("Erro ao conectar ao banco de dados:", error);
+});
